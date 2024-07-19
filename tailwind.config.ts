@@ -8,6 +8,15 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      animation: {
+        heartbeat: "heartbeat 1s infinite",
+      },
+      keyframes: {
+        heartbeat: {
+          "0%, 100%": { transform: "scale(1)" },
+          "50%": { transform: "scale(1.2)" },
+        },
+      },
       backgroundImage: {
         "custom-gradient": "linear-gradient(90deg, #082f49, #172554)",
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -29,7 +38,13 @@ const config: Config = {
           900: "#0c4a6e",
           950: "#082f49",
         },
+        devIcon: "#0d9488",
       },
+    },
+  },
+  variants: {
+    extend: {
+      animation: ["hover"],
     },
   },
   plugins: [],

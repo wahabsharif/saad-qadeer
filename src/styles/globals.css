@@ -20,9 +20,35 @@ body {
   color: rgb(var(--foreground-rgb));
   background: #083344;
 }
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.text-fade-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.text-fade-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 500ms ease-out, transform 500ms ease-out;
+}
+
+.text-fade-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.text-fade-exit-active {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 500ms ease-in, transform 500ms ease-in;
+}
+
+.dev-logo {
+  width: 32px;
+  height: auto;
 }

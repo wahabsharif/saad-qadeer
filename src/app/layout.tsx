@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "@/styles/globals.css";
 import NavBar from "@/components/common/NavBar";
 import SocialIcons from "@/components/common/SocialIcons";
+import Developer from "@/components/common/Developer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,6 +23,7 @@ export default function RootLayout({
         <main>
           <NavBar />
           <SocialIcons />
+          <Developer />
           {children}
         </main>
       </body>
