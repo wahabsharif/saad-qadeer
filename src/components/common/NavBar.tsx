@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const NavBar = () => {
   return (
-    <header className="fixed z-50 h-10 w-auto -translate-x-1/2 bg-white border border-gray-200 rounded-full bottom-2 left-1/2 dark:bg-gray-700 dark:border-gray-600">
+    <header className="fixed z-50 h-10 w-auto -translate-x-1/2  border backdrop-blur-sm bg-white/30 border-yellow rounded-full bottom-2 left-1/2">
       <div className="flex h-full max-w-lg mx-auto items-center justify-between relative">
         <div className="relative group flex-1 text-center">
           <Link
