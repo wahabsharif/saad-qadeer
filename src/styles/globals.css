@@ -48,7 +48,7 @@ body {
   transition: opacity 500ms ease-in, transform 500ms ease-in;
 }
 
-.dev-logo {
-  width: 32px;
-  height: auto;
+.neon-border {
+  border: 2px solid #ffcc00;
+  box-shadow: 0 0 5px #ffcc00, 0 0 5px #ffcc00, 0 0 10px #ffcc00;
 }

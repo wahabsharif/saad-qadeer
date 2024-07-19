@@ -1,3 +1,7 @@
+"use client";
+
+import React, { useEffect, useState } from "react";
+import { useSpring, animated } from "@react-spring/web";
 import Link from "next/link";
 import {
   FaBehance,
@@ -7,9 +11,30 @@ import {
 } from "react-icons/fa";
 
 const SocialIcons = () => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  // Animation configuration
+  const props = useSpring({
+    from: { transform: "scale(0.5)", opacity: 0 },
+    to: isLoaded
+      ? [
+          { transform: "scale(1.1)", opacity: 1 },
+          { transform: "scale(1)", opacity: 1 },
+        ]
+      : { transform: "scale(0.5)", opacity: 0 },
+    config: { tension: 250, friction: 30, duration: 1000 },
+  });
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
+
   return (
-    <aside className="fixed z-50 w-10 top-1/2 right-2 transform -translate-y-1/2 backdrop-blur-sm bg-white/30 border border-yellow rounded-full">
-      <div className="flex flex-col items-center justify-center h-full space-y-2">
+    <aside className="fixed z-50 w-10 top-1/2 right-2 transform -translate-y-1/2 ">
+      <animated.div
+        style={props}
+        className="flex flex-col items-center justify-center h-full space-y-2 backdrop-blur-sm bg-white/30 neon-border rounded-full"
+      >
         <div className="relative group">
           <Link
             target="_blank"
@@ -53,7 +78,7 @@ const SocialIcons = () => {
             <FaBehance className="text-gray-600 text-2xl font-bold dark:text-gray-300 group-hover:text-red-500 dark:group-hover:text-red-300" />
           </Link>
         </div>
-      </div>
+      </animated.div>
     </aside>
   );
 };
