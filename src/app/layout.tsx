@@ -8,6 +8,7 @@ import Developer from "@/components/common/Developer";
 import CursorTrailCanvas from "@/components/common/CursorTrailCanvas";
 import LoadingWrapper from "@/components/common/LoadingWrapper"; // Import the client-side wrapper
 import { LoadingProvider } from "@/context/LoadingContext";
+import DockBar from "@/components/common/DockBar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,7 +31,8 @@ export default function RootLayout({
               color="hsla(50, 50%, 50%)"
               className="pointer-events-none fixed inset-0 -z-10 h-full w-full"
             />
-            <NavBar />
+            <DockBar />
+            {/* <NavBar /> */}
             <SocialIcons />
             <Developer />
             {children}

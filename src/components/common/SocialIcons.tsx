@@ -12,8 +12,6 @@ import {
 
 const SocialIcons = () => {
   const [isLoaded, setIsLoaded] = useState(false);
-
-  // Animation configuration
   const props = useSpring({
     from: { transform: "scale(0.5)", opacity: 0 },
     to: isLoaded
