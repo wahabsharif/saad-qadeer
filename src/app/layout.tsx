@@ -1,3 +1,4 @@
+// src/app/layout.tsx
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@/styles/globals.css";
@@ -5,6 +6,8 @@ import NavBar from "@/components/common/NavBar";
 import SocialIcons from "@/components/common/SocialIcons";
 import Developer from "@/components/common/Developer";
 import CursorTrailCanvas from "@/components/common/CursorTrailCanvas";
+import LoadingWrapper from "@/components/common/LoadingWrapper"; // Import the client-side wrapper
+import { LoadingProvider } from "@/context/LoadingContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,16 +24,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <main>
-          <CursorTrailCanvas
-            color="hsla(50, 50%, 50%)"
-            className="pointer-events-none fixed inset-0 -z-10 h-full w-full"
-          />
-          <NavBar />
-          <SocialIcons />
-          <Developer />
-          {children}
-        </main>
+        <LoadingProvider>
+          <LoadingWrapper>
+            <CursorTrailCanvas
+              color="hsla(50, 50%, 50%)"
+              className="pointer-events-none fixed inset-0 -z-10 h-full w-full"
+            />
+            <NavBar />
+            <SocialIcons />
+            <Developer />
+            {children}
+          </LoadingWrapper>
+        </LoadingProvider>
       </body>
     </html>
   );
