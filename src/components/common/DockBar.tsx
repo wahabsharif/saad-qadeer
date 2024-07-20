@@ -36,8 +36,9 @@ const DockBar: React.FC = () => {
   useEffect(() => {
     setIsLoaded(true);
   }, []);
+
   return (
-    <header className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex items-center justify-center">
+    <header className="fixed bottom-0 left-1/2 transform -translate-x-1/2 flex items-center justify-center mb-4 z-50">
       <animated.div
         style={props}
         className="flex flex-col items-center justify-center space-y-2 backdrop-blur-sm bg-white/30 neon-border rounded-full"
