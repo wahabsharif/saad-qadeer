@@ -9,12 +9,33 @@ const config: Config = {
   theme: {
     extend: {
       animation: {
+        "spin-around": "spin-around calc(var(--speed) * 2) infinite linear",
+        slide: "slide var(--speed) ease-in-out infinite alternate",
         heartbeat: "heartbeat 1s infinite",
       },
       keyframes: {
         heartbeat: {
           "0%, 100%": { transform: "scale(1)" },
           "50%": { transform: "scale(1.2)" },
+        },
+        "spin-around": {
+          "0%": {
+            transform: "translateZ(0) rotate(0)",
+          },
+          "15%, 35%": {
+            transform: "translateZ(0) rotate(90deg)",
+          },
+          "65%, 85%": {
+            transform: "translateZ(0) rotate(270deg)",
+          },
+          "100%": {
+            transform: "translateZ(0) rotate(360deg)",
+          },
+        },
+        slide: {
+          to: {
+            transform: "translate(calc(100cqw - 100%), 0)",
+          },
         },
       },
       backgroundImage: {

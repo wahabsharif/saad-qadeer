@@ -4,6 +4,7 @@ import { useSpring, animated } from "@react-spring/web";
 import Image from "next/image";
 import BlurFade from "@/components/magicui/blur-fade";
 import BannerImage from "@/assets/home/home-banner.png";
+import ShimmerButton from "@/components/magicui/shimmer-button";
 
 const Banner = () => {
   // State for mouse position
@@ -38,6 +39,12 @@ const Banner = () => {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, [handleMouseMove]);
 
+  // Function to handle button click
+  const handleClick = () => {
+    const phoneNumber = "+923175487963"; // Replace with your phone number
+    window.location.href = `tel:${phoneNumber}`;
+  };
+
   return (
     <section className="h-[80vh] flex items-center justify-center overflow-hidden">
       <div className="flex w-full max-w-6xl mx-auto px-5 items-center justify-center relative">
@@ -62,6 +69,13 @@ const Banner = () => {
               something amazing together!
             </p>
           </BlurFade>
+          <div className="mt-2 items-center justify-center">
+            <ShimmerButton className="shadow-2xl" onClick={handleClick}>
+              <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-yellow dark:to-sky-700 lg:text-lg">
+                HIRE ME!
+              </span>
+            </ShimmerButton>
+          </div>{" "}
         </div>
 
         {/* Image */}
