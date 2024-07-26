@@ -9,6 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       animation: {
+        backgroundPositionSpin:
+          "background-position-spin 3000ms infinite alternate",
         "spin-around": "spin-around calc(var(--speed) * 2) infinite linear",
         slide: "slide var(--speed) ease-in-out infinite alternate",
         marquee: "marquee var(--duration) linear infinite",
@@ -16,6 +18,10 @@ const config: Config = {
         heartbeat: "heartbeat 1s infinite",
       },
       keyframes: {
+        "background-position-spin": {
+          "0%": { backgroundPosition: "top center" },
+          "100%": { backgroundPosition: "bottom center" },
+        },
         marquee: {
           from: { transform: "translateX(0)" },
           to: { transform: "translateX(calc(-100% - var(--gap)))" },
