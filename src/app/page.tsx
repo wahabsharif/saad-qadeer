@@ -1,13 +1,14 @@
-import Banner from "@/components/home/Banner";
+import dynamic from "next/dynamic";
 import { Expertise } from "@/components/home/Expertise";
-// import { ExpertiseCloudIcon } from "@/components/home/ExpertiseCloudIcons";
+
+// Dynamically import components
+const Banner = dynamic(() => import("@/components/home/Banner"));
 
 export default function Home() {
   return (
     <>
       <Banner />
       <Expertise />
-      {/* <ExpertiseCloudIcon /> */}
     </>
   );
 }

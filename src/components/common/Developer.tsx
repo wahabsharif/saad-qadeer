@@ -15,7 +15,7 @@ const Developer = () => {
   };
 
   return (
-    <div className="relative z-50">
+    <div className="relative z-50 hidden md:block lg:block">
       <div
         className="fixed bottom-0 right-0 p-2"
         onClick={toggleTextVisibility}

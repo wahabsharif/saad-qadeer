@@ -38,19 +38,17 @@ const DockBar: React.FC = () => {
   }, []);
 
   return (
-    <header className="fixed bottom-0 left-1/2 transform -translate-x-1/2 mb-4 z-50">
+    <header className="fixed bottom-0 left-1/2 transform -translate-x-1/2 mb-4 z-50 hidden md:block lg:block">
       <animated.div
         style={props}
         className="flex flex-col items-center justify-center space-y-2 backdrop-blur-sm bg-white/30 neon-border rounded-full"
       >
-        <ul className="flex items-center space-x-2 sm:space-x-3 md:space-x-4 lg:space-x-6 p-1">
+        <ul className="flex items-center space-x-4 px-4 py-1">
           {dockItems.map((item, index) => (
             <li
               key={index}
-              className={`relative flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 transform transition-transform duration-200 ${
-                hoveredIndex === index
-                  ? "scale-125 sm:scale-150 -translate-y-1 sm:-translate-y-2"
-                  : ""
+              className={`relative flex items-center justify-center w-8 h-8 transform transition-transform duration-200 ${
+                hoveredIndex === index ? "scale-125 -translate-y-1" : ""
               }`}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
@@ -59,12 +57,10 @@ const DockBar: React.FC = () => {
                 href={item.href}
                 className="flex items-center justify-center w-full h-full"
               >
-                <div className="text-white text-sm sm:text-md md:text-lg">
-                  {item.icon}
-                </div>
+                <div className="text-white text-sm">{item.icon}</div>
               </Link>
               <span
-                className={`absolute bottom-10 sm:bottom-12 left-1/2 transform -translate-x-1/2 bg-black text-white text-xs p-1 rounded-md ${
+                className={`absolute bottom-10 left-1/2 transform -translate-x-1/2 bg-black text-white text-xs p-1 rounded-md ${
                   hoveredIndex === index ? "block" : "hidden"
                 }`}
               >
