@@ -53,14 +53,14 @@ const expertiseData = [
   },
 ];
 
-const firstRow = expertiseData.slice(0, expertiseData.length / 2);
+const firstRow = expertiseData.slice(expertiseData.length / 2);
 const secondRow = expertiseData.slice(expertiseData.length / 2);
 
 const ReviewCard = ({ icon, title }: { icon: string; title: string }) => {
   return (
     <figure
       className={cn(
-        "relative w-64 cursor-pointer overflow-hidden rounded-xl border p-4",
+        "relative w-25 cursor-pointer overflow-hidden rounded-xl border p-4",
         // light styles
         "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
         // dark styles

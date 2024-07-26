@@ -46,17 +46,32 @@ const Banner = () => {
   };
 
   return (
-    <section className="h-[80vh] flex items-center justify-center overflow-hidden">
-      <div className="flex w-full max-w-6xl mx-auto px-5 items-center justify-center relative">
-        {/* Intro */}
-        <div className="flex-1 text-left mr-4">
+    <section className="flex flex-col items-center justify-center overflow-hidden px-5">
+      <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        {/* Image */}
+        <animated.div className={"mt-5"} style={{ ...props }}>
           <BlurFade delay={0.25} inView>
-            <h2 className="text-3xl font-bold title-gradient sm:text-5xl xl:text-6xl/none">
+            <div className="flex justify-center items-center">
+              <Image
+                src={BannerImage}
+                alt="Sample"
+                width={500}
+                height={500}
+                className="w-full h-auto rounded-2xl"
+              />
+            </div>
+          </BlurFade>
+        </animated.div>
+
+        {/* Intro */}
+        <div className="text-left mt-10">
+          <BlurFade delay={0.25} inView>
+            <h2 className="text-3xl font-bold title-gradient sm:text-5xl xl:text-6xl">
               Hello 👋
             </h2>
           </BlurFade>
-          <BlurFade delay={0.25 * 3} inView>
-            <p className="mt-4 text-xl">
+          <BlurFade delay={0.75} inView>
+            <p className="mt-4 lg:text-xl text-sm">
               Hi, I&apos;m{" "}
               <span className="text-yellow">Saad Qadeer Abbasi</span>, a graphic
               designer with over 3 years of experience. I specialize in creating
@@ -69,33 +84,14 @@ const Banner = () => {
               something amazing together!
             </p>
           </BlurFade>
-          <div className="mt-2 items-center justify-center">
+          <div className="mt-2">
             <ShimmerButton className="shadow-2xl" onClick={handleClick}>
               <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-yellow dark:to-sky-700 lg:text-lg">
                 HIRE ME!
               </span>
             </ShimmerButton>
-          </div>{" "}
+          </div>
         </div>
-
-        {/* Image */}
-        <animated.div
-          style={{
-            ...props,
-          }}
-        >
-          <BlurFade delay={0.25} inView>
-            <div className="flex-1 flex justify-center items-center">
-              <Image
-                src={BannerImage}
-                alt="Sample"
-                width={500}
-                height={500}
-                className="w-50 h-auto rounded-2xl"
-              />
-            </div>
-          </BlurFade>
-        </animated.div>
       </div>
     </section>
   );
