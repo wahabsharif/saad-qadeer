@@ -1,10 +1,17 @@
 "use client";
-import React, { useCallback, useEffect, useState } from "react";
-import { useSpring, animated } from "@react-spring/web";
-import Image from "next/image";
-import BlurFade from "@/components/magicui/blur-fade";
 import BannerImage from "@/assets/home/home-banner.png";
-import ShimmerButton from "@/components/magicui/shimmer-button";
+import BlurFade from "@/components/magicui/blur-fade";
+import { animated, useSpring } from "@react-spring/web";
+import Image from "next/image";
+import { useCallback, useEffect, useState } from "react";
+import dynamic from "next/dynamic";
+
+const ShimmerButton = dynamic(
+  () => import("@/components/magicui/shimmer-button"),
+  {
+    ssr: false,
+  }
+);
 
 const Banner = () => {
   // State for mouse position
@@ -58,6 +65,7 @@ const Banner = () => {
                 width={500}
                 height={500}
                 className="w-full h-auto rounded-2xl"
+                priority // Ensure the image is loaded as soon as possible
               />
             </div>
           </BlurFade>
