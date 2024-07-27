@@ -55,6 +55,8 @@ const config: Config = {
         },
       },
       backgroundImage: {
+        "section-gradient":
+          "linear-gradient(135deg, #3a4149 0%, #16191e 25%, #080808 75%, #1d1e21 100%)",
         "custom-gradient": "linear-gradient(90deg, #082f49, #172554)",
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
@@ -74,6 +76,19 @@ const config: Config = {
           800: "#075985",
           900: "#0c4a6e",
           950: "#082f49",
+        },
+        gray: {
+          50: "#f9fafb",
+          100: "#f3f4f6",
+          200: "#e5e7eb",
+          300: "#d1d5db",
+          400: "#9ca3af",
+          500: "#6b7280",
+          600: "#4b5563",
+          700: "#374151",
+          800: "#1f2937",
+          900: "#111827",
+          950: "#030712",
         },
         devIcon: "#0d9488",
       },

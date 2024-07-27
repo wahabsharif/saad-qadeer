@@ -53,7 +53,7 @@ const Banner = () => {
   };
 
   return (
-    <section className="flex flex-col items-center justify-center overflow-hidden px-5">
+    <section className="flex flex-col items-center justify-center overflow-hidden px-5 bg-section-gradient">
       <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         {/* Image */}
         <animated.div className={"mt-5"} style={{ ...props }}>
@@ -92,8 +92,8 @@ const Banner = () => {
               something amazing together!
             </p>
           </BlurFade>
-          <div className="mt-2">
-            <ShimmerButton className="shadow-2xl" onClick={handleClick}>
+          <div className="my-4">
+            <ShimmerButton className="shadow-2xl " onClick={handleClick}>
               <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-yellow dark:to-sky-700 lg:text-lg">
                 HIRE ME!
               </span>

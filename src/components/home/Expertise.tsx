@@ -91,7 +91,7 @@ const ReviewCard = ({ icon, title }: { icon: string; title: string }) => {
 
 export function Expertise() {
   return (
-    <section className="relative flex mt-10 w-full flex-col items-center justify-center overflow-hidden rounded-lg bg-background md:shadow-xl">
+    <section className="relative flex mt-10 w-full flex-col items-center justify-center overflow-hidden rounded-lg md:shadow-xl">
       <Marquee pauseOnHover className="[--duration:30s]">
         {firstRow.map((review) => (
           <ReviewCard key={review.title} {...review} />

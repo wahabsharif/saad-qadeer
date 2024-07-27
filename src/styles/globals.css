@@ -17,8 +17,14 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: #083344;
+  color: #d1d5db;
+  background: linear-gradient(
+    135deg,
+    #3a4149 0%,
+    #16191e 25%,
+    #080808 75%,
+    #1d1e21 100%
+  );
 }
 @layer utilities {
   .text-balance {
