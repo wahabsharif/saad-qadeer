@@ -5,12 +5,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
 // Dynamically import components
-const CursorTrailCanvas = dynamic(
-  () => import("@/components/common/CursorTrailCanvas"),
-  {
-    ssr: false, // Disable server-side rendering for this component
-  }
-);
+
 const Developer = dynamic(() => import("@/components/common/Developer"));
 const DockBar = dynamic(() => import("@/components/common/DockBar"));
 const LoadingWrapper = dynamic(
@@ -39,10 +34,6 @@ export default function RootLayout({
       <body className={inter.className}>
         <LoadingProvider>
           <LoadingWrapper>
-            <CursorTrailCanvas
-              color="hsla(50, 50%, 50%)"
-              className="pointer-events-none fixed inset-0 -z-10 h-full w-full"
-            />
             <DockBar />
             <MobileMenu />
             <SocialIcons />

@@ -41,7 +41,7 @@ const DockBar: React.FC = () => {
     <header className="fixed bottom-0 left-1/2 transform -translate-x-1/2 mb-4 z-50 hidden md:block lg:block">
       <animated.div
         style={props}
-        className="flex flex-col items-center justify-center space-y-2 backdrop-blur-sm bg-white/30 neon-border rounded-full"
+        className="flex flex-col items-center justify-center space-y-2 backdrop-blur-sm bg-white/30 rounded-full"
       >
         <ul className="flex items-center space-x-4 px-4 py-1">
           {dockItems.map((item, index) => (
