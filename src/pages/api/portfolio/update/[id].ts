@@ -13,10 +13,13 @@ export default async function handler(
 
   if (req.method === "PUT") {
     try {
-      const updatedPortfolio = await updatePortfolio(
-        parseInt(id, 10),
-        req.body
-      );
+      const { image, clientName, shortDescription, category } = req.body;
+      const updatedPortfolio = await updatePortfolio(parseInt(id, 10), {
+        image,
+        clientName,
+        shortDescription,
+        category,
+      });
       if (updatedPortfolio) {
         res.status(200).json(updatedPortfolio);
       } else {

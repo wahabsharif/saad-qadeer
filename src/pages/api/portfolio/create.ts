@@ -7,10 +7,28 @@ export default async function handler(
 ) {
   if (req.method === "POST") {
     try {
-      const portfolio = await createPortfolio(req.body);
+      console.log("Request body:", req.body);
+      const { image, clientName, shortDescription, category } = req.body;
+
+      if (!image || !clientName || !shortDescription || !category) {
+        return res.status(400).json({ error: "Missing required fields" });
+      }
+
+      const portfolio = await createPortfolio({
+        image,
+        clientName,
+        shortDescription,
+        category,
+      });
+
       res.status(201).json(portfolio);
     } catch (error) {
-      res.status(500).json({ error: "Unable to create portfolio" });
+      console.error("Error creating portfolio:", error);
+      let errorMessage = "Unknown error";
+      if (error instanceof Error) {
+        errorMessage = `Unable to create portfolio: ${error.message}`;
+      }
+      res.status(500).json({ error: errorMessage });
     }
   } else {
     res.setHeader("Allow", ["POST"]);
