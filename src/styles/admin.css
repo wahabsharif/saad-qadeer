@@ -1,0 +1,48 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 64px; /* Fixed width for icons */
+  height: 100vh;
+  transition: width 0.3s ease;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+.sidebar-expanded {
+  width: 11rem; /* Adjust width as needed */
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.sidebar-title {
+  opacity: 0;
+  white-space: nowrap;
+  margin-left: 16px; /* Adjust margin as needed */
+  transition: opacity 0.3s ease;
+}
+
+.sidebar-expanded .sidebar-title {
+  opacity: 1;
+}
+
+.mt-auto {
+  margin-top: auto;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
