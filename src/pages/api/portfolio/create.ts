@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { createPortfolio } from "../../../services/portfolioService";
+import { createPortfolio } from "@/services/portfolioService";
 
 export default async function handler(
   req: NextApiRequest,

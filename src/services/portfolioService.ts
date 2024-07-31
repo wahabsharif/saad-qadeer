@@ -1,4 +1,6 @@
-import prisma from "../lib/prisma";
+//services/portfolioService.ts
+
+import prisma from "@/lib/prisma";
 import { uploadImageToImgbb } from "../lib/imgbb";
 
 export const createPortfolio = async (data: {
