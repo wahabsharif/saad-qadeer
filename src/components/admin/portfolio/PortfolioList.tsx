@@ -64,11 +64,15 @@ const PortfolioList: React.FC = () => {
                     className="w-auto h-auto rounded-md"
                   />
                 </td>
-                <td className="py-2 px-4 border-b">{portfolio.clientName}</td>
-                <td className="py-2 px-4 border-b">
+                <td className="py-2 px-4 border-b capitalize">
+                  {portfolio.clientName}
+                </td>
+                <td className="py-2 px-4 border-b capitalize">
                   {portfolio.shortDescription}
                 </td>
-                <td className="py-2 px-4 border-b">{portfolio.category}</td>
+                <td className="py-2 px-4 border-b capitalize">
+                  {portfolio.category}
+                </td>
               </tr>
             ))}
           </tbody>
