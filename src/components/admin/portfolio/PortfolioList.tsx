@@ -34,6 +34,19 @@ const PortfolioList: React.FC = () => {
     fetchPortfolios();
   }, []);
 
+  const handleDelete = async (id: string) => {
+    try {
+      await axios.delete(`/api/portfolio/${id}`);
+      // Remove the deleted portfolio from the state
+      setPortfolios((prevPortfolios) =>
+        prevPortfolios.filter((portfolio) => portfolio.id !== id)
+      );
+    } catch (err) {
+      setError("Failed to delete portfolio");
+      console.error(err);
+    }
+  };
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p className="text-red-500">{error}</p>;
 
@@ -50,6 +63,7 @@ const PortfolioList: React.FC = () => {
                 Short Description
               </th>
               <th className="py-2 px-4 border-b text-left">Category</th>
+              <th className="py-2 px-4 border-b text-left">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -72,6 +86,14 @@ const PortfolioList: React.FC = () => {
                 </td>
                 <td className="py-2 px-4 border-b capitalize">
                   {portfolio.category}
+                </td>
+                <td className="py-2 px-4 border-b">
+                  <button
+                    onClick={() => handleDelete(portfolio.id)}
+                    className="bg-red-500 text-white py-1 px-3 rounded"
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}
