@@ -9,7 +9,6 @@ export const createPortfolio = async (data: {
   shortDescription: string;
   category: string;
 }) => {
-  console.log("Creating portfolio with data:", data);
   try {
     return await prisma.portfolio.create({
       data: {
