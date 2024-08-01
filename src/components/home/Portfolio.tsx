@@ -102,7 +102,13 @@ const Portfolio: React.FC = () => {
   return (
     <section className="p-10 bg-section-gradient">
       <div className="my-4">
-        <h1 className="text-4xl font-bold text-center mb-4">Portfolio</h1>
+        <h1 className="text-4xl font-bold text-center mb-4">
+          Projects I&apos;ve Recently Completed
+        </h1>
+        <p className="text-center mb-4">
+          The convention represents the major annual event for professionals in
+          design.
+        </p>
 
         {/* Dropdown for small screens */}
         <div className="md:hidden my-5 flex justify-center">
