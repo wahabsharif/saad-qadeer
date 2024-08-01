@@ -5,6 +5,7 @@ import { animated, useSpring } from "@react-spring/web";
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 import dynamic from "next/dynamic";
+import CreativeText from "@/components/home/CreativeText"; // Import the CreativeText component
 
 const ShimmerButton = dynamic(
   () => import("@/components/magicui/shimmer-button"),
@@ -74,26 +75,23 @@ const Banner = () => {
         {/* Intro */}
         <div className="text-left mt-10">
           <BlurFade delay={0.25} inView>
-            <h2 className="text-3xl font-bold title-gradient sm:text-5xl xl:text-6xl">
-              Hello 👋
-            </h2>
+            <CreativeText animationStyle={2} />{" "}
+            {/* Apply the desired animation style */}
           </BlurFade>
           <BlurFade delay={0.75} inView>
             <p className="mt-4 lg:text-xl text-sm">
-              Hi, I&apos;m{" "}
-              <span className="text-yellow">Saad Qadeer Abbasi</span>, a graphic
-              designer with over 3 years of experience. I specialize in creating
-              stunning designs using Adobe Illustrator and Photoshop. Whether
-              you need logos, banners, flyers, social media posts, or any
-              Photoshop work, I can help. I believe that great designs should
-              not only look fantastic but also tell a compelling story.
-              I&apos;ll take the time to understand your needs and craft
+              A graphic designer with over 3 years of experience. I specialize
+              in creating stunning designs using Adobe Illustrator and
+              Photoshop. Whether you need logos, banners, flyers, social media
+              posts, or any Photoshop work, I can help. I believe that great
+              designs should not only look fantastic but also tell a compelling
+              story. I&apos;ll take the time to understand your needs and craft
               something truly special for you. Let&apos;s collaborate and create
               something amazing together!
             </p>
           </BlurFade>
           <div className="my-4">
-            <ShimmerButton className="shadow-2xl " onClick={handleClick}>
+            <ShimmerButton className="shadow-2xl" onClick={handleClick}>
               <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-yellow dark:to-sky-700 lg:text-lg">
                 HIRE ME!
               </span>

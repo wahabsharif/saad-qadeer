@@ -132,3 +132,60 @@ body {
 .card:hover .overlay {
   bottom: 0;
 }
+
+.creative__text--animation-2 {
+  --primary-color: #ffcc00;
+  --text-color: #ffffff;
+  --text-color-transparent: rgba(255, 255, 255, 0.1);
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align items to the start (left) */
+  font-size: 4em;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.creative__text--animation-2 > span {
+  position: relative;
+  color: var(--text-color-transparent);
+  animation: displayText-2 12s infinite;
+  animation-delay: calc(-3s * var(--i));
+}
+
+.creative__text--animation-2 span::before {
+  content: attr(data-text);
+  position: absolute;
+  bottom: 0; /* Position the text at the bottom of the span */
+  left: 0; /* Align the text to the left */
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-right: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  animation: animate-2 3s linear infinite;
+  filter: drop-shadow(0 0 5px var(--primary-color))
+    drop-shadow(0 0 25px var(--primary-color));
+}
+
+@keyframes displayText-2 {
+  0% {
+    display: inline-block;
+  }
+  25%,
+  100% {
+    display: none;
+  }
+}
+
+@keyframes animate-2 {
+  0%,
+  10%,
+  100% {
+    width: 0;
+  }
+  70%,
+  90% {
+    width: 100%;
+  }
+}
