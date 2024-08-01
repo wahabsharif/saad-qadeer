@@ -1,11 +1,14 @@
 // src/pages/api/portfolio/create.ts
 import type { NextApiRequest, NextApiResponse } from "next";
 import { createPortfolio } from "@/services/portfolioService";
+import { cors } from "@/lib/cors";
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  await cors(req, res); // Apply CORS middleware
+
   if (req.method === "POST") {
     try {
       console.log("Request body:", req.body);
