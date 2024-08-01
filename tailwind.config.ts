@@ -9,6 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       animation: {
+        pulse: "pulse var(--duration) ease-out infinite",
         backgroundPositionSpin:
           "background-position-spin 3000ms infinite alternate",
         "spin-around": "spin-around calc(var(--speed) * 2) infinite linear",
@@ -18,6 +19,10 @@ const config: Config = {
         heartbeat: "heartbeat 1s infinite",
       },
       keyframes: {
+        pulse: {
+          "0%, 100%": { boxShadow: "0 0 0 0 var(--pulse-color)" },
+          "50%": { boxShadow: "0 0 0 8px var(--pulse-color)" },
+        },
         "background-position-spin": {
           "0%": { backgroundPosition: "top center" },
           "100%": { backgroundPosition: "bottom center" },

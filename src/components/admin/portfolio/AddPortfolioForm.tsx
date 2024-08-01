@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const AddPortfolioForm: React.FC = () => {
   const [image, setImage] = useState<File | null>(null);
@@ -12,6 +13,8 @@ const AddPortfolioForm: React.FC = () => {
   const [category, setCategory] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  const router = useRouter();
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
@@ -65,6 +68,9 @@ const AddPortfolioForm: React.FC = () => {
       setClientName("");
       setShortDescription("");
       setCategory("");
+
+      // Redirect to the portfolio admin page
+      router.push("/admin/portfolio");
     } catch (err) {
       if (axios.isAxiosError(err)) {
         setError(
@@ -137,7 +143,7 @@ const AddPortfolioForm: React.FC = () => {
             <Image
               src={imagePreviewUrl}
               alt="Image preview"
-              className="mt-2 max-w-full h-auto"
+              className="mt-2 max-w-full h-auto rounded-xl"
               objectFit="cover"
               width={500}
               height={500}

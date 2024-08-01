@@ -4,6 +4,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Image from "next/image";
+import { AddPortfolioButton } from "./AddPortfolioButton";
 
 interface PortfolioItem {
   id: string;
@@ -52,7 +53,12 @@ const PortfolioList: React.FC = () => {
 
   return (
     <section className="overflow-x-auto my-6 p-5">
-      <h1 className="my-8 text-4xl font-bold text-center">Portfolio List.</h1>
+      <div className="flex justify-between items-center my-8">
+        <h1 className="text-4xl font-bold text-center flex-grow">
+          Portfolio List
+        </h1>
+        <AddPortfolioButton />
+      </div>
       {portfolios.length > 0 ? (
         <table className="w-full shadow-sm">
           <thead className="">
