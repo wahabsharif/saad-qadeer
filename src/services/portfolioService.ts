@@ -29,45 +29,45 @@ export const createPortfolio = async (data: {
   }
 };
 
-export const updatePortfolio = async (
-  id: number,
-  data: Partial<{
-    image: Buffer | string;
-    clientName: string;
-    shortDescription: string;
-    category: string;
-  }>
-) => {
-  const updatedData: Partial<{
-    image: string;
-    clientName: string;
-    shortDescription: string;
-    category: string;
-  }> = {};
+// export const updatePortfolio = async (
+//   id: number,
+//   data: Partial<{
+//     image: Buffer | string;
+//     clientName: string;
+//     shortDescription: string;
+//     category: string;
+//   }>
+// ) => {
+//   const updatedData: Partial<{
+//     image: string;
+//     clientName: string;
+//     shortDescription: string;
+//     category: string;
+//   }> = {};
 
-  try {
-    if (data.image) {
-      updatedData.image = await uploadImageToImgbb(data.image);
-    }
-    if (data.clientName) updatedData.clientName = data.clientName;
-    if (data.shortDescription)
-      updatedData.shortDescription = data.shortDescription;
-    if (data.category) updatedData.category = data.category as any; // Cast to any to match enum type
+//   try {
+//     if (data.image) {
+//       updatedData.image = await uploadImageToImgbb(data.image);
+//     }
+//     if (data.clientName) updatedData.clientName = data.clientName;
+//     if (data.shortDescription)
+//       updatedData.shortDescription = data.shortDescription;
+//     if (data.category) updatedData.category = data.category as any; // Cast to any to match enum type
 
-    return await prisma.portfolio.update({
-      where: { id },
-      data: updatedData,
-    });
-  } catch (error: unknown) {
-    if (typeof error === "object" && error !== null && "message" in error) {
-      console.error("Database error:", error);
-      throw new Error(`Database error: ${(error as Error).message}`);
-    } else {
-      console.error("An unexpected error occurred:", error);
-      throw new Error("An unexpected error occurred");
-    }
-  }
-};
+//     return await prisma.portfolio.update({
+//       where: { id },
+//       data: updatedData,
+//     });
+//   } catch (error: unknown) {
+//     if (typeof error === "object" && error !== null && "message" in error) {
+//       console.error("Database error:", error);
+//       throw new Error(`Database error: ${(error as Error).message}`);
+//     } else {
+//       console.error("An unexpected error occurred:", error);
+//       throw new Error("An unexpected error occurred");
+//     }
+//   }
+// };
 
 export const getPortfolioById = async (id: number) => {
   try {
