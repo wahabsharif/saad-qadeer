@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Image from "next/image";
 import { AddPortfolioButton } from "./AddPortfolioButton";
+import { MoonLoader } from "react-spinners"; // Import MoonLoader
 
 interface PortfolioItem {
   id: string;
@@ -26,7 +27,6 @@ const PortfolioList: React.FC = () => {
         setPortfolios(response.data);
       } catch (err) {
         setError("Failed to load portfolios");
-        console.error(err);
       } finally {
         setLoading(false);
       }
@@ -44,11 +44,23 @@ const PortfolioList: React.FC = () => {
       );
     } catch (err) {
       setError("Failed to delete portfolio");
-      console.error(err);
     }
   };
 
-  if (loading) return <p>Loading...</p>;
+  const formatCategory = (category: string) => {
+    return category
+      .toLowerCase()
+      .split("_")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+  };
+
+  if (loading)
+    return (
+      <div className="flex justify-center items-center h-full">
+        <MoonLoader color="#0096ff" size={100} />
+      </div>
+    );
   if (error) return <p className="text-red-500">{error}</p>;
 
   return (
@@ -91,7 +103,7 @@ const PortfolioList: React.FC = () => {
                   {portfolio.shortDescription}
                 </td>
                 <td className="py-2 px-4 border-b capitalize">
-                  {portfolio.category}
+                  {formatCategory(portfolio.category)}
                 </td>
                 <td className="py-2 px-4 border-b">
                   <button

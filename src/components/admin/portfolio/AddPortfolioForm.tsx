@@ -16,6 +16,14 @@ const AddPortfolioForm: React.FC = () => {
 
   const router = useRouter();
 
+  const categories = [
+    "LOGO_DESIGN",
+    "SOCIAL_MEDIA_POST",
+    "FLYER_DESIGN",
+    "STATIONARY",
+    "MOTION_GRAPHICS_ANIMATION",
+  ];
+
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       const selectedImage = e.target.files[0];
@@ -108,13 +116,21 @@ const AddPortfolioForm: React.FC = () => {
             <label className="block text-lg font-medium text-gray-200">
               Category
             </label>
-            <input
-              type="text"
+            <select
               value={category}
               onChange={(e) => setCategory(e.target.value)}
               className="mt-1 block w-full p-2 text-gray-800 border border-gray-300 rounded-md shadow-sm"
               required
-            />
+            >
+              <option value="" disabled>
+                Select a category
+              </option>
+              {categories.map((cat) => (
+                <option key={cat} value={cat}>
+                  {cat.replace(/_/g, " ")}
+                </option>
+              ))}
+            </select>
           </div>
         </div>
         <div>

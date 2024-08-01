@@ -13,14 +13,20 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
 model Portfolio {
   id               Int      @id @default(autoincrement())
   image            String
   clientName       String
   shortDescription String
-  category         String
+  category         Category
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt
 }
 
+enum Category {
+  LOGO_DESIGN
+  SOCIAL_MEDIA_POST
+  FLYER_DESIGN
+  STATIONARY
+  MOTION_GRAPHICS_ANIMATION
+}

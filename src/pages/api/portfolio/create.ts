@@ -1,3 +1,4 @@
+// src/pages/api/portfolio/create.ts
 import type { NextApiRequest, NextApiResponse } from "next";
 import { createPortfolio } from "@/services/portfolioService";
 
@@ -12,6 +13,18 @@ export default async function handler(
 
       if (!image || !clientName || !shortDescription || !category) {
         return res.status(400).json({ error: "Missing required fields" });
+      }
+
+      const validCategories = [
+        "LOGO_DESIGN",
+        "SOCIAL_MEDIA_POST",
+        "FLYER_DESIGN",
+        "STATIONARY",
+        "MOTION_GRAPHICS_ANIMATION",
+      ];
+
+      if (!validCategories.includes(category)) {
+        return res.status(400).json({ error: "Invalid category" });
       }
 
       const portfolio = await createPortfolio({
