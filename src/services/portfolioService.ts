@@ -1,116 +1,61 @@
-// services/portfolioService.ts
+import { ObjectId } from "mongodb";
+import clientPromise from "@/lib/mongodb";
+import { uploadImageToImgbb } from "@/lib/imgbb";
 
-import prisma from "@/lib/prisma";
-import { uploadImageToImgbb } from "../lib/imgbb";
+const COLLECTION_NAME = "portfolio";
 
-export const createPortfolio = async (data: {
-  image: string;
-  clientName: string;
-  shortDescription: string;
-  category: string;
-}) => {
-  try {
-    return await prisma.portfolio.create({
-      data: {
-        image: data.image,
-        clientName: data.clientName,
-        shortDescription: data.shortDescription,
-        category: data.category as any, // Cast to any to match enum type
-      },
-    });
-  } catch (error: unknown) {
-    if (typeof error === "object" && error !== null && "message" in error) {
-      console.error("Database error:", error);
-      throw new Error(`Database error: ${(error as Error).message}`);
-    } else {
-      console.error("An unexpected error occurred:", error);
-      throw new Error("An unexpected error occurred");
-    }
+export async function createPortfolio(data: any) {
+  const client = await clientPromise;
+  const db = client.db("SaadDatabase");
+
+  let imageUrl = "";
+  if (data.image) {
+    // Handle image upload if provided
+    imageUrl = await uploadImageToImgbb(data.image);
   }
-};
 
-// export const updatePortfolio = async (
-//   id: number,
-//   data: Partial<{
-//     image: Buffer | string;
-//     clientName: string;
-//     shortDescription: string;
-//     category: string;
-//   }>
-// ) => {
-//   const updatedData: Partial<{
-//     image: string;
-//     clientName: string;
-//     shortDescription: string;
-//     category: string;
-//   }> = {};
+  const portfolioData = {
+    ...data,
+    image: imageUrl,
+  };
 
-//   try {
-//     if (data.image) {
-//       updatedData.image = await uploadImageToImgbb(data.image);
-//     }
-//     if (data.clientName) updatedData.clientName = data.clientName;
-//     if (data.shortDescription)
-//       updatedData.shortDescription = data.shortDescription;
-//     if (data.category) updatedData.category = data.category as any; // Cast to any to match enum type
+  return db.collection(COLLECTION_NAME).insertOne(portfolioData);
+}
 
-//     return await prisma.portfolio.update({
-//       where: { id },
-//       data: updatedData,
-//     });
-//   } catch (error: unknown) {
-//     if (typeof error === "object" && error !== null && "message" in error) {
-//       console.error("Database error:", error);
-//       throw new Error(`Database error: ${(error as Error).message}`);
-//     } else {
-//       console.error("An unexpected error occurred:", error);
-//       throw new Error("An unexpected error occurred");
-//     }
-//   }
-// };
+export async function updatePortfolio(id: string, data: any) {
+  const client = await clientPromise;
+  const db = client.db("SaadDatabase");
 
-export const getPortfolioById = async (id: number) => {
-  try {
-    return await prisma.portfolio.findUnique({
-      where: { id },
-    });
-  } catch (error: unknown) {
-    if (typeof error === "object" && error !== null && "message" in error) {
-      console.error("Database error:", error);
-      throw new Error(`Database error: ${error.message}`);
-    } else {
-      console.error("An unexpected error occurred:", error);
-      throw new Error("An unexpected error occurred");
-    }
+  let imageUrl = data.image;
+  if (data.image && typeof data.image !== "string") {
+    // Handle image upload if provided as a new image
+    imageUrl = await uploadImageToImgbb(data.image);
   }
-};
 
-export const getAllPortfolios = async () => {
-  try {
-    return await prisma.portfolio.findMany();
-  } catch (error: unknown) {
-    if (typeof error === "object" && error !== null && "message" in error) {
-      console.error("Database error:", error);
-      throw new Error(`Database error: ${error.message}`);
-    } else {
-      console.error("An unexpected error occurred:", error);
-      throw new Error("An unexpected error occurred");
-    }
-  }
-};
+  const updateData = {
+    ...data,
+    image: imageUrl,
+  };
 
-export const deletePortfolio = async (id: number) => {
-  try {
-    return await prisma.portfolio.delete({
-      where: { id },
-    });
-  } catch (error: unknown) {
-    if (typeof error === "object" && error !== null && "message" in error) {
-      console.error("Database error:", error);
-      throw new Error(`Database error: ${error.message}`);
-    } else {
-      console.error("An unexpected error occurred:", error);
-      throw new Error("An unexpected error occurred");
-    }
-  }
-};
+  return db
+    .collection(COLLECTION_NAME)
+    .updateOne({ _id: new ObjectId(id) }, { $set: updateData });
+}
+
+export async function getPortfolios() {
+  const client = await clientPromise;
+  const db = client.db("SaadDatabase");
+  return db.collection(COLLECTION_NAME).find({}).toArray();
+}
+
+export async function getPortfolioById(id: string) {
+  const client = await clientPromise;
+  const db = client.db("SaadDatabase");
+  return db.collection(COLLECTION_NAME).findOne({ _id: new ObjectId(id) });
+}
+
+export async function deletePortfolio(id: string) {
+  const client = await clientPromise;
+  const db = client.db("SaadDatabase");
+  return db.collection(COLLECTION_NAME).deleteOne({ _id: new ObjectId(id) });
+}
