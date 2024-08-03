@@ -63,7 +63,7 @@ const AddPortfolioForm: React.FC = () => {
       const imageUrl = uploadResponse.data.data.url;
 
       // Create portfolio item
-      await axios.post("/api/portfolio/create", {
+      await axios.post("/api/portfolio", {
         image: imageUrl,
         clientName,
         shortDescription,
