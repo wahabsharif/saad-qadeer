@@ -100,7 +100,7 @@ const Portfolio: React.FC = () => {
   if (error) return <p className="text-red-500">{error}</p>;
 
   return (
-    <section className="p-10 bg-section-gradient">
+    <section className="p-10 bg-section-gradient h-full">
       <div className="my-4">
         <h1 className="text-4xl font-bold text-center mb-4">
           Projects I&apos;ve Recently Completed
@@ -187,8 +187,8 @@ const Portfolio: React.FC = () => {
               </motion.div>
             ))
           ) : (
-            <div className="flex items-center justify-center h-full col-span-full">
-              <p className="text-center text-2xl font-bold">
+            <div className="flex items-center justify-center h-full my-5 p-5 col-span-full">
+              <p className="text-center text-lg font-bold md:text-xl lg:text-2xl">
                 <span className="text-red-800">OOPS !</span> No portfolio
                 available for the selected category...
               </p>
