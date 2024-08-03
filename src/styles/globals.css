@@ -59,9 +59,6 @@ body {
   box-shadow: 0 0 5px #ffcc00, 0 0 5px #ffcc00, 0 0 10px #ffcc00;
 }
 
-.bg-gradient {
-}
-
 .bg-gradient::before {
   content: "";
   position: absolute;
@@ -140,8 +137,8 @@ body {
 
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Align items to the start (left) */
-  font-size: 4em;
+  align-items: flex-start;
+  font-size: 4em; /* Default size for larger screens */
   font-weight: 600;
   color: var(--text-color);
 }
@@ -156,8 +153,8 @@ body {
 .creative__text--animation-2 span::before {
   content: attr(data-text);
   position: absolute;
-  bottom: 0; /* Position the text at the bottom of the span */
-  left: 0; /* Align the text to the left */
+  bottom: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -187,5 +184,25 @@ body {
   70%,
   90% {
     width: 100%;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .creative__text--animation-2 {
+    font-size: 3em; /* Medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .creative__text--animation-2 {
+    font-size: 2em; /* Small screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .creative__text--animation-2 {
+    font-size: 1.5em; /* Extra small screens */
+    margin-top: 4rem;
   }
 }

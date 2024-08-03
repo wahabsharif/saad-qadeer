@@ -7,7 +7,7 @@ interface IPortfolio extends Document {
   category:
     | "Logo Design"
     | "Social Media Post"
-    | "Flyer Design"
+    | "Stream Graphics"
     | "Stationary"
     | "Motion Graphics & Animation";
 }
@@ -31,7 +31,7 @@ const PortfolioSchema: Schema = new Schema(
       enum: [
         "Logo Design",
         "Social Media Post",
-        "Flyer Design",
+        "Stream Graphics",
         "Stationary",
         "Motion Graphics & Animation",
       ],

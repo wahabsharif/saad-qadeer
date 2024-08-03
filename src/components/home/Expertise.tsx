@@ -39,14 +39,14 @@ const expertiseData = [
     title: "Adobe Premiere",
     icon: "adobe-premiere-icon.svg",
   },
-  {
-    title: "Adobe XD",
-    icon: "adobe-xd-icon.svg",
-  },
-  {
-    title: "Figma",
-    icon: "figma-icon.svg",
-  },
+  // {
+  //   title: "Adobe XD",
+  //   icon: "adobe-xd-icon.svg",
+  // },
+  // {
+  //   title: "Figma",
+  //   icon: "figma-icon.svg",
+  // },
   {
     title: "Adobe Illustrator",
     icon: "illustrator-icon.svg",

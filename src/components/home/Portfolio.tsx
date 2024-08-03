@@ -18,7 +18,7 @@ const categories = [
   "All",
   "Logo Design",
   "Social Media Post",
-  "Flyer Design",
+  "Stream Graphics",
   "Stationary",
   "Motion Graphics & Animation",
 ];

@@ -31,7 +31,7 @@ const SocialIcons = () => {
     <aside className="fixed z-50 w-10 top-1/2 right-2 transform -translate-y-1/2 hidden md:block lg:block">
       <animated.div
         style={props}
-        className="flex flex-col items-center justify-center h-full space-y-2 backdrop-blur-sm bg-white/30 neon-border rounded-full"
+        className="flex flex-col items-center justify-center h-full space-y-2 backdrop-blur-sm bg-white/30 rounded-full"
       >
         <div className="relative group">
           <Link

@@ -56,6 +56,28 @@ const Banner = () => {
   return (
     <section className="flex flex-col items-center justify-center overflow-hidden px-5 bg-section-gradient">
       <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        {/* Intro */}
+        <div className="text-left mt-4">
+          <BlurFade delay={0.25} inView>
+            <CreativeText animationStyle={2} />{" "}
+            {/* Apply the desired animation style */}
+          </BlurFade>
+          <BlurFade delay={0.75} inView>
+            <p className="mt-4 lg:text-xl text-sm">
+              With 3+ years as a graphic designer, I create impactful designs
+              using Illustrator and Photoshop, crafting stories through visuals.
+              Let&apos;s collaborate!
+            </p>
+          </BlurFade>
+          <div className="my-4">
+            <ShimmerButton className="shadow-2xl" onClick={handleClick}>
+              <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-yellow dark:to-sky-700 lg:text-lg">
+                HIRE ME!
+              </span>
+            </ShimmerButton>
+          </div>
+        </div>
+
         {/* Image */}
         <animated.div className={"mt-5"} style={{ ...props }}>
           <BlurFade delay={0.25} inView>
@@ -71,33 +93,6 @@ const Banner = () => {
             </div>
           </BlurFade>
         </animated.div>
-
-        {/* Intro */}
-        <div className="text-left mt-10">
-          <BlurFade delay={0.25} inView>
-            <CreativeText animationStyle={2} />{" "}
-            {/* Apply the desired animation style */}
-          </BlurFade>
-          <BlurFade delay={0.75} inView>
-            <p className="mt-4 lg:text-xl text-sm">
-              A graphic designer with over 3 years of experience. I specialize
-              in creating stunning designs using Adobe Illustrator and
-              Photoshop. Whether you need logos, banners, flyers, social media
-              posts, or any Photoshop work, I can help. I believe that great
-              designs should not only look fantastic but also tell a compelling
-              story. I&apos;ll take the time to understand your needs and craft
-              something truly special for you. Let&apos;s collaborate and create
-              something amazing together!
-            </p>
-          </BlurFade>
-          <div className="my-4">
-            <ShimmerButton className="shadow-2xl" onClick={handleClick}>
-              <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-yellow dark:to-sky-700 lg:text-lg">
-                HIRE ME!
-              </span>
-            </ShimmerButton>
-          </div>
-        </div>
       </div>
     </section>
   );

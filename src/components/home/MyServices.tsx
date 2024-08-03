@@ -16,7 +16,7 @@ const MyServices: React.FC = () => {
             className="max-w-sm items-center justify-center text-center"
           >
             <BlurFade delay={0.25} inView>
-              <span className="pointer-events-none z-10 h-full whitespace-pre-wrap bg-gradient-to-br from-[#ff2975] from-35% to-[#00FFF1] bg-clip-text text-center text-3xl font-bold leading-none tracking-tighter text-transparent dark:drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)]">
+              <span className="pointer-events-none z-10 h-full whitespace-pre-wrap bg-gradient-to-br from-[#ffcc00] from-35% to-[#082f49] bg-clip-text text-center text-3xl font-bold leading-none tracking-tighter text-transparent dark:drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)]">
                 {service.title}
               </span>
             </BlurFade>

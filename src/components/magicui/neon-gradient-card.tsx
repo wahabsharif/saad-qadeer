@@ -57,7 +57,7 @@ interface NeonGradientCardProps {
   borderRadius?: number;
 
   /**
-   * @default "{ firstColor: '#ff00aa', secondColor: '#00FFF1' }"
+   * @default "{ firstColor: '#ffcc00', secondColor: '#082f49' }"
    * @type string
    * @description
    * The colors of the neon gradient
@@ -73,8 +73,8 @@ const NeonGradientCard: React.FC<NeonGradientCardProps> = ({
   borderSize = 2,
   borderRadius = 20,
   neonColors = {
-    firstColor: "#ff00aa",
-    secondColor: "#00FFF1",
+    firstColor: "#ffcc00",
+    secondColor: "#082f49",
   },
   ...props
 }) => {
@@ -117,14 +117,14 @@ const NeonGradientCard: React.FC<NeonGradientCardProps> = ({
           "--card-height": `${dimensions.height}px`,
           "--card-content-radius": `${borderRadius - borderSize}px`,
           "--pseudo-element-background-image": `linear-gradient(0deg, ${neonColors.firstColor}, ${neonColors.secondColor})`,
-          "--pseudo-element-width": `${dimensions.width + borderSize * 2}px`,
-          "--pseudo-element-height": `${dimensions.height + borderSize * 2}px`,
+          "--pseudo-element-width": `${dimensions.width + borderSize * 1}px`,
+          "--pseudo-element-height": `${dimensions.height + borderSize * 1}px`,
           "--after-blur": `${dimensions.width / 3}px`,
         } as CSSProperties
       }
       className={cn(
         "relative z-10 h-full w-full rounded-[var(--border-radius)]",
-        className,
+        className
       )}
       {...props}
     >
@@ -135,11 +135,13 @@ const NeonGradientCard: React.FC<NeonGradientCardProps> = ({
           "before:h-[var(--pseudo-element-height)] before:w-[var(--pseudo-element-width)] before:rounded-[var(--border-radius)] before:content-['']",
           "before:bg-[linear-gradient(0deg,var(--neon-first-color),var(--neon-second-color))] before:bg-[length:100%_200%]",
           "before:animate-backgroundPositionSpin",
-          "after:absolute after:-left-[var(--border-size)] after:-top-[var(--border-size)] after:-z-10 after:block",
+
+          // "after:absolute after:-left-[var(--border-size)] after:-top-[var(--border-size)] after:-z-10 after:block",
+
           "after:h-[var(--pseudo-element-height)] after:w-[var(--pseudo-element-width)] after:rounded-[var(--border-radius)] after:blur-[var(--after-blur)] after:content-['']",
           "after:bg-[linear-gradient(0deg,var(--neon-first-color),var(--neon-second-color))] after:bg-[length:100%_200%] after:opacity-80",
           "after:animate-backgroundPositionSpin",
-          "dark:bg-neutral-900",
+          "dark:bg-neutral-900"
         )}
       >
         {children}
