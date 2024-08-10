@@ -160,18 +160,19 @@ const Portfolio: React.FC = () => {
                 <Image
                   src={portfolio.image}
                   alt={portfolio.clientName}
-                  width={1000}
-                  height={800}
+                  width={500} // Set to your desired width
+                  height={400} // Set to your desired height
                   className="w-full h-auto rounded-md mb-2 cursor-pointer"
                   objectFit="cover"
                   quality={90}
                   sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
                 />
+
                 <div className="overlay relative">
                   <h2 className="capitalize text-xl text-gray-200 font-semibold ml-5 my-2">
                     {portfolio.clientName}
                   </h2>
-                  <p className="capitalize text-gray-500 ml-5 my-2">
+                  <p className="capitalize text-gray-100 ml-5 my-2">
                     {portfolio.shortDescription}
                   </p>
                   <p className="capitalize text-gray-400 ml-5 my-2">
@@ -197,17 +198,21 @@ const Portfolio: React.FC = () => {
         </AnimatePresence>
       </div>
 
-      {/* Modal for image view */}
       {selectedImage && (
         <dialog
           open
           className="fixed inset-0 h-full w-full flex items-center justify-center bg-black shadow-md rounded-xl bg-opacity-80 backdrop-blur-2xl backdrop-saturate-200 z-50"
           style={{ backdropFilter: "blur(10px)" }}
         >
-          <div className="relative w-full max-w-4xl bg-gray-900 p-2 rounded-lg">
+          <div
+            className="relative w-full max-w-4xl max-h-full rounded-lg bg-gray-900 p-2 flex items-center justify-center"
+            style={{
+              aspectRatio: "1.41", // Example aspect ratio (A4, approx 1.41:1), replace with dynamic value if needed
+            }}
+          >
             <button
               onClick={closeModal}
-              className="absolute top-4 right-4 text-white text-4xl"
+              className="absolute top-4 right-4 text-white text-4xl z-50"
             >
               &times;
             </button>
@@ -216,19 +221,18 @@ const Portfolio: React.FC = () => {
                 <MoonLoader color="#ffcc00" />
               </div>
             )}
-            <Image
-              src={selectedImage}
-              alt="Selected Image"
-              width={1500}
-              height={1200}
-              className="w-full h-auto rounded-lg"
-              objectFit="contain"
-              quality={90}
-              sizes="(max-width: 640px) 100vw, (max-width: 768px) 75vw, 50vw"
-              onLoadingComplete={handleImageLoadEnd}
-              onError={handleImageLoadEnd}
-              onLoadStart={handleImageLoadStart}
-            />
+            <div className="relative w-full h-full max-w-full max-h-full flex items-center justify-center">
+              <Image
+                src={selectedImage}
+                alt="Selected Image"
+                layout="fill"
+                className="object-contain rounded-lg"
+                quality={90}
+                onLoadingComplete={handleImageLoadEnd}
+                onError={handleImageLoadEnd}
+                onLoadStart={handleImageLoadStart}
+              />
+            </div>
           </div>
         </dialog>
       )}
