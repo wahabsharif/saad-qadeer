@@ -1,18 +1,22 @@
-// components/PortfolioList.tsx
 "use client";
 
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Image from "next/image";
 import { AddPortfolioButton } from "./AddPortfolioButton";
-import { MoonLoader } from "react-spinners"; // Import MoonLoader
+import { MoonLoader } from "react-spinners";
 
 interface PortfolioItem {
-  id: string;
+  _id: string; // Make sure to use '_id' here to match MongoDB
   image: string;
   clientName: string;
   shortDescription: string;
-  category: string;
+  category:
+    | "Logo Design"
+    | "Social Media Post"
+    | "Stream Graphics"
+    | "Stationary"
+    | "Motion Graphics & Animation";
 }
 
 const PortfolioList: React.FC = () => {
@@ -36,13 +40,18 @@ const PortfolioList: React.FC = () => {
   }, []);
 
   const handleDelete = async (id: string) => {
+    if (!id) {
+      console.error("No ID provided for delete operation");
+      return;
+    }
     try {
       await axios.delete(`/api/portfolio/${id}`);
-      // Remove the deleted portfolio from the state
-      setPortfolios((prevPortfolios) =>
-        prevPortfolios.filter((portfolio) => portfolio.id !== id)
+      setPortfolios(
+        (prevPortfolios) =>
+          prevPortfolios.filter((portfolio) => portfolio._id !== id) // Use '_id' to filter
       );
     } catch (err) {
+      console.error("Failed to delete portfolio:", err);
       setError("Failed to delete portfolio");
     }
   };
@@ -86,7 +95,9 @@ const PortfolioList: React.FC = () => {
           </thead>
           <tbody>
             {portfolios.map((portfolio) => (
-              <tr key={portfolio.id}>
+              <tr key={portfolio._id}>
+                {" "}
+                {/* Use '_id' here */}
                 <td className="py-2 px-4 border-b">
                   <Image
                     src={portfolio.image}
@@ -107,7 +118,7 @@ const PortfolioList: React.FC = () => {
                 </td>
                 <td className="py-2 px-4 border-b">
                   <button
-                    onClick={() => handleDelete(portfolio.id)}
+                    onClick={() => handleDelete(portfolio._id)} // Pass '_id' here
                     className="bg-red-500 text-white py-1 px-3 rounded"
                   >
                     Delete
