@@ -1,11 +1,11 @@
 "use client";
-import BannerImage from "@/assets/home/home-banner.png";
+import BannerImage from "@/assets/home/saad-qadeer-website-banner-2.png";
 import BlurFade from "@/components/magicui/blur-fade";
 import { animated, useSpring } from "@react-spring/web";
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 import dynamic from "next/dynamic";
-import CreativeText from "@/components/home/CreativeText"; // Import the CreativeText component
+import CreativeText from "@/components/home/CreativeText";
 
 const ShimmerButton = dynamic(
   () => import("@/components/magicui/shimmer-button"),
@@ -54,7 +54,7 @@ const Banner = () => {
   };
 
   return (
-    <section className="flex flex-col items-center justify-center overflow-hidden px-5 bg-section-gradient">
+    <section className="flex flex-col items-center justify-center overflow-hidden px-5">
       <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         {/* Intro */}
         <div className="text-left mt-4">

@@ -100,7 +100,7 @@ const Portfolio: React.FC = () => {
   if (error) return <p className="text-red-500">{error}</p>;
 
   return (
-    <section className="p-10 bg-section-gradient h-full">
+    <section className="p-10 h-full">
       <div className="my-4">
         <h1 className="text-4xl font-bold text-center mb-4">
           Projects I&apos;ve Recently Completed
@@ -160,12 +160,13 @@ const Portfolio: React.FC = () => {
                 <Image
                   src={portfolio.image}
                   alt={portfolio.clientName}
-                  width={500} // Set to your desired width
-                  height={400} // Set to your desired height
+                  width={500}
+                  height={400}
                   className="w-full h-auto rounded-md mb-2 cursor-pointer"
-                  objectFit="cover"
+                  style={{ objectFit: "cover" }}
                   quality={90}
                   sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+                  onClick={() => handleImageClick(portfolio.image)}
                 />
 
                 <div className="overlay relative">
@@ -207,7 +208,7 @@ const Portfolio: React.FC = () => {
           <div
             className="relative w-full max-w-4xl max-h-full rounded-lg bg-gray-900 p-2 flex items-center justify-center"
             style={{
-              aspectRatio: "1.41", // Example aspect ratio (A4, approx 1.41:1), replace with dynamic value if needed
+              aspectRatio: "1.41",
             }}
           >
             <button
@@ -225,7 +226,7 @@ const Portfolio: React.FC = () => {
               <Image
                 src={selectedImage}
                 alt="Selected Image"
-                layout="fill"
+                fill
                 className="object-contain rounded-lg"
                 quality={90}
                 onLoadingComplete={handleImageLoadEnd}

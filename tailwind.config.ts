@@ -59,14 +59,14 @@ const config: Config = {
           },
         },
       },
-      backgroundImage: {
-        "section-gradient":
-          "radial-gradient(135deg, #3a4149 0%, #16191e 25%, #080808 75%, #1d1e21 100%)",
-        "custom-gradient": "linear-gradient(90deg, #082f49, #172554)",
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
+      // backgroundImage: {
+      //   "section-gradient":
+      //     "radial-gradient(135deg, #3a4149 0%, #16191e 25%, #080808 75%, #1d1e21 100%)",
+      //   "custom-gradient": "linear-gradient(90deg, #082f49, #172554)",
+      //   "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+      //   "gradient-conic":
+      //     "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      // },
       colors: {
         yellow: "#ffcc00",
         sky: {

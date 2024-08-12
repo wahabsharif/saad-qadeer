@@ -7,9 +7,9 @@ const BlurFade = dynamic(() => import("@/components/magicui/blur-fade"));
 
 const MyServices: React.FC = () => {
   return (
-    <section className="flex flex-col items-center justify-center p-4 mt-5 bg-section-gradient">
+    <section className="flex flex-col items-center justify-center p-4 mt-5">
       <h1 className="my-8 text-4xl font-bold text-center">My Services.</h1>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 ">
         {servicesData.map((service, index) => (
           <NeonGradientCard
             key={index}

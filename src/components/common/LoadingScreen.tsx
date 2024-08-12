@@ -37,7 +37,7 @@ export function LoadingScreen() {
 
   return (
     <div
-      className={`fixed inset-0 flex items-center justify-center bg-gradient z-50 transition-opacity duration-500 ${
+      className={`fixed inset-0 flex items-center justify-center gradient-bg bg-gradient z-50 transition-opacity duration-500 ${
         isFadingOut ? "opacity-0" : "opacity-100"
       }`}
     >

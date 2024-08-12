@@ -19,7 +19,7 @@ const AddPortfolioForm: React.FC = () => {
   const categories = [
     "LOGO_DESIGN",
     "SOCIAL_MEDIA_POST",
-    "FLYER_DESIGN",
+    "STREAM_GRAPHICS",
     "STATIONARY",
     "MOTION_GRAPHICS_ANIMATION",
   ];
