@@ -60,7 +60,7 @@ const MobileMenu: React.FC = () => {
     <div className="relative">
       {/* Toggle Button */}
       <motion.button
-        className="fixed top-4 left-4 z-50 p-2 font-extrabold text-slate-900 backdrop-blur-sm bg-white/50 neon-border rounded-full shadow-lg md:hidden"
+        className="fixed top-4 right-4 z-50 p-2 font-extrabold text-slate-900 backdrop-blur-sm bg-white/50 neon-border rounded-full shadow-lg md:hidden"
         onClick={toggleMenu}
         initial={{ scale: 1 }}
         animate={{ scale: isOpen ? 1.1 : 1 }}
@@ -81,7 +81,7 @@ const MobileMenu: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="fixed top-20 left-4 z-40 backdrop-blur-sm bg-white/30 neon-border rounded-xl p-4 md:hidden"
+            className="fixed top-20 right-4 z-40 backdrop-blur-sm bg-white/30 neon-border rounded-xl p-4 md:hidden"
           >
             <ul className="space-y-4">
               {menuItems.map((item) => (

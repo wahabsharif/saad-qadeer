@@ -3,6 +3,7 @@ import { LoadingProvider } from "@/context/LoadingContext";
 import "@/styles/globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import WebLogo from "@/components/common/WebLogo";
 
 // Dynamically import components
 const Developer = dynamic(() => import("@/components/common/Developer"));
@@ -72,6 +73,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <LoadingProvider>
           <LoadingWrapper>
+            <WebLogo />
             <DockBar />
             <MobileMenu />
             <SocialIcons />
